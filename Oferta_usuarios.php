@@ -24,7 +24,7 @@
     ?>
     <div class="container mt-5 mb-5 card">
         <div class="card-header text-center fs-2">
-            <b>DATOS PERSONALES</b>
+            <b>NOMBRE DE LA OFERTA</b>
         </div>
 
         <div class="main-body mt-5 ">
@@ -34,7 +34,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="uploads/<?= $foto ?>" alt="Admin" class="img-thumbnail" width="250">
+                                <img src="<?= $foto ?>" alt="Admin" class="rounded-circle" width="150">
                             </div>
                         </div>
                     </div>

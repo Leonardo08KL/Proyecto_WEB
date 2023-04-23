@@ -65,7 +65,7 @@ if(empty($captcha)){
             setcookie("sessionID", $sessionID, time() + (86400 * 30), "/");
             setcookie("correo", $correo, time() + (86400 * 30), "/");
 
-            header("Location: ../index.php");
+            header("Location: insertar_nivel_estudios.php");
             exit();
     }
     

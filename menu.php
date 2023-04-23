@@ -55,6 +55,10 @@ if (isset($_COOKIE["sessionID"])) {
 
                 <a class="btn btn-outline-light me-3" href="CERRAR_SESION/cerrar_sesion.php">CERRAR SESION</a>
 
+                <a class="btn btn-outline-light me-3" href="Oferta.php">
+                    NUEVA OFERATA
+                </a>
+
                 <a class="btn btn-outline-light" href="perfil.php">
                     PERFIL
                 </a>

@@ -24,7 +24,7 @@
   <form class="FormularioRegistrarse" action="./insertar_nivel_estudios.php" method="POST">
 
     <fieldset>
-      <legend>EDITAR NIVEL DE ESTUDIOS</legend>
+      <legend>Actividad Profesional</legend>
       <div class="form-group">
         <label class="form-label mt-4">INSTITUCION</label>
         <input type="text" class="form-control" placeholder="INSTITUCION" name="institucion" required>
