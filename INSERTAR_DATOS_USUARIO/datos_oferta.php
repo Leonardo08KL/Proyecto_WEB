@@ -3,6 +3,7 @@ session_start();
 
 
 $nombreOferta = $_POST['nombreOferta'];
+$categoria = $_POST['categoriaOferta'];
 $txtDescripcion = $_POST['txtDescripcion'];
 $Rango_minimo = $_POST['Rango_minimo'];
 $Rango_maximo = $_POST['Rango_maximo'];

@@ -1,8 +1,13 @@
 <?php
 require('./CONEXION/conexion.php');
 
+$queryCategoria = "SELECT ID_categoria, Nombre_categoria, descripcion FROM catalogo_categoria ORDER BY Nombre_categoria;";
+$resultadoCategoria = $conn->query($queryCategoria);
+
 $query = "SELECT id_estado, estado FROM estado ORDER BY estado";
+
 $resultado = $conn->query($query);
+
 ?>
 
 <!DOCTYPE html>
@@ -60,6 +65,19 @@ $resultado = $conn->query($query);
             </div>
 
             <div class="form-group">
+                <label class="form-label mt-4">Categoria</label>
+
+                <select name="categoriaOferta" id="cbx_estado" class="form-control" aria-placeholder="Selecciona">
+                    <option value="0">Seleccionar Categoria</option>
+
+                    <?php while ($row = $resultadoCategoria->fetch_assoc()) { ?>
+                        <option value="<?php echo $row['ID_categoria']; ?>"><?php echo $row['Nombre_categoria']; ?></option>
+                    <?php } ?>
+
+                </select>
+            </div>
+
+            <div class="form-group">
                 <label class="form-label mt-4">Descripcion</label>
                 <textarea class="form-control" id="txtDescripcion" placeholder="Agregue una descripci&oacute;n para que los usuarios puedan seleccionarlo" name="txtDescripcion" rows="8" required></textarea>
             </div>
@@ -97,6 +115,12 @@ $resultado = $conn->query($query);
 
             <hr />
             <label class="form-label mt-2">UBICACION</label>
+
+            <div class="form-group">
+                <label class="form-label mt-4">Direcion De contacto</label>
+                <input type="text" class="form-control" placeholder="Ejemplo: Mercurio No. 11" name="direccionOferta" required>
+            </div>
+
             <div class="form-group">
 
                 <label class="form-label mt-4">ESTADO</label>
@@ -106,7 +130,6 @@ $resultado = $conn->query($query);
                     <?php while ($row = $resultado->fetch_assoc()) { ?>
                         <option value="<?php echo $row['id_estado']; ?>"><?php echo $row['estado']; ?></option>
                     <?php } ?>
-
                 </select>
             </div>
 

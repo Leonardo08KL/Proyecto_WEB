@@ -7,6 +7,9 @@
     <title>Proyecto WEB</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <script language="javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script src='main.js'></script>
 </head>
 
@@ -242,6 +245,12 @@
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
     </footer>
 
+    <script>
+        // mostrar la notificación después de enviar el formulario
+        <?php if ($_GET['enviado'] == 'true') { ?>
+            swal("Session Iniciada", "¡Bienvenido de vuelta!", "success");
+        <?php } ?>
+    </script>
 
 </body>
 

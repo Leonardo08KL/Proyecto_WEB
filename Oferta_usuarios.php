@@ -43,11 +43,18 @@
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
                                 <div class="mt-3">
-                                    <h4> Nivel de Estudios </h4>
+                                <div class="card-header">
+                                    <h6 class="mb-0">CONTACTO</h6>
+                                </div>
+                                    <h4> TELEFONO DE CONTACTO </h4>
                                     <p class="text-secondary mb-1">
                                         <?php echo $institucion . ' (' . $fecha_ingreso . ' - ' . $fecha_egreso . ')'; ?>
                                     </p>
-                                    <p class="text-muted font-size-sm"><?php echo $descripcion; ?></p>
+                                    <hr/>
+                                    <h4> Direccion de Contacto </h4>
+                                    <p class="text-secondary mb-1">
+                                        <?php echo $institucion . ' (' . $fecha_ingreso . ' - ' . $fecha_egreso . ')'; ?>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -59,69 +66,16 @@
                     <div class="card mb-3">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Nombre Completo</h6>
+                                <div class="card-header">
+                                    <h6 class="mb-0">DESCRIPCI&Oacute;N</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <?php echo $nombre_completo; ?>
                                 </div>
                             </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Genero</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <?php echo $genero; ?>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Correo Electronico</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <?php echo $correo; ?>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Telefono</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <?php echo $telefono; ?>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Estado donde reside</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <?php echo "Localida: " . $localidad . "<br/> Municipio: " . $municipio . "<br/> Estado: " . $estado; ?>
-                                </div>
-                            </div>
-                            <hr>
                         </div>
                     </div>
 
-                    <div class="row gutters-sm">
-                        <div class="col-sm-6 mb-3">
-                            <div class="card border-primary mb-3">
-                                <div class="card-header">EXPERIENCIA LABORAL</div>
-                                <div class="card-body">
-                                    <?php while ($row = mysqli_fetch_assoc($resultExperiencia)) : ?>
-                                        <h4 class="card-title"> <?php echo $row['Nombre_experiencia'] . " (" . $row['Fecha_ingreso'] . ") - (" . $row['Fecha_egreso'] . ")"; ?></h4>
-                                        <p class="card-text"> <?php echo $row['Descripcion']; ?></p>
-                                    <?php endwhile; ?>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                    </div>
                 </div>
 
             </div>
@@ -136,3 +90,9 @@
 </body>
 
 </html>
+
+
+
+
+
+bjmgjhgjghgdfdxghhjvvjhghfjugokkokp0oi09o09iu090k9injkdem,fghkmarria fernanmaria fernanda herrera lemus jessica herrera lemus
