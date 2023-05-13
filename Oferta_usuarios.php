@@ -22,7 +22,7 @@
 
     <?php
 
-    require('CONSULTAR_DATOS_PERFIL/datos_index.php');
+    require('CONSULTAR_DATOS_PERFIL/datos_ofertas.php');
     ?>
 
     <div class="container mt-5 mb-5 card">
