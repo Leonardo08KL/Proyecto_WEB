@@ -15,7 +15,7 @@ $resultado = $conn->query($query);
 
     <!--CSS BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-    
+
     <script language="javascript" src="js/jquery-3.1.1.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
@@ -243,7 +243,17 @@ $resultado = $conn->query($query);
         </div>
 
         <button class="accordion">Editar Experiencia Laboral</button>
+
+
+
         <div class="panel">
+            <div class="d-grid gap-2 mt-5 mb-5">
+                <form action="./Nueva_Experiencia_Laboral.php" method="POST">
+                    <input class="btn btn-lg btn-primary" type="submit" value="Ingresa Nueva Experiencia Laboral" />
+                </form>
+            </div>
+            <hr>
+
             <?php while ($row = mysqli_fetch_assoc($resultExperiencia)) : ?>
                 <form action="EditarDatos/EditarDatos.php" method="POST">
                     <fieldset>
@@ -251,7 +261,7 @@ $resultado = $conn->query($query);
                         <input type="hidden" name="ID_Experiencia" value=" <?php echo $ID_Experiencia = $row['ID_experiencia']; ?>">
 
                         <div>
-                            <label class="form-label mt-4">Nombre De la Instituci&oacute;n</label>
+                            <label class="form-label mt-4">Nombre</label>
                             <input type="text" class="form-control" name="nombreExp" value="<?php echo $row['Nombre_experiencia']; ?>">
                         </div>
 
@@ -274,9 +284,18 @@ $resultado = $conn->query($query);
                             <input type="hidden" name="boton" value="6">
                             <input type="submit" value="Registrar" class="btn btn-lg btn-outline-danger btn-block">
                         </div>
-                        <hr>
                     </fieldset>
                 </form>
+
+                <form action="EditarDatos/EditarDatos.php" method="POST">
+                    <input type="hidden" name="ID_Experiencia" value=" <?php echo $ID_Experiencia = $row['ID_experiencia']; ?>">
+
+                    <div class="text-center mt-5 mb-3">
+                        <input type="hidden" name="boton" value="7">
+                        <input type="submit" value="Borrar" class="btn btn-lg btn-outline-danger btn-block">
+                    </div>
+                </form>
+                <hr>
             <?php endwhile; ?>
         </div>
 

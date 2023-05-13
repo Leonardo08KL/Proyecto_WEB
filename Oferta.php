@@ -67,19 +67,17 @@ $resultado = $conn->query($query);
             <div class="form-group">
                 <label class="form-label mt-4">Categoria</label>
 
-                <select name="categoriaOferta" id="cbx_estado" class="form-control" aria-placeholder="Selecciona">
+                <select name="categoriaOferta" id="categoriaOferta" class="form-control" aria-placeholder="Selecciona">
                     <option value="0">Seleccionar Categoria</option>
-
                     <?php while ($row = $resultadoCategoria->fetch_assoc()) { ?>
                         <option value="<?php echo $row['ID_categoria']; ?>"><?php echo $row['Nombre_categoria']; ?></option>
                     <?php } ?>
-
                 </select>
             </div>
 
             <div class="form-group">
                 <label class="form-label mt-4">Descripcion</label>
-                <textarea class="form-control" id="txtDescripcion" placeholder="Agregue una descripci&oacute;n para que los usuarios puedan seleccionarlo" name="txtDescripcion" rows="8" required></textarea>
+                <textarea class="form-control" id="txtDescripcion" placeholder="Agregue una descripci&oacute;n para que los usuarios puedan seleccionarlo" name="txtDescripcion" rows="8"></textarea>
             </div>
 
             <hr />
@@ -160,5 +158,6 @@ $resultado = $conn->query($query);
             console.error(error);
         });
 </script>
+
 
 </html>

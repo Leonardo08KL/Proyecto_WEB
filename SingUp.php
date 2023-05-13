@@ -1,10 +1,3 @@
-<?php
-	require ('./CONEXION/conexion.php');
-	
-	$query = "SELECT id_estado, estado FROM estado ORDER BY estado";
-	$resultado=$conn->query($query);
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -15,34 +8,7 @@
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
   <link rel='stylesheet' type='text/css' media='screen' href='Style.css'>
-  <script language="javascript" src="js/jquery-3.1.1.min.js"></script>
-
-  <script language="javascript">
-			$(document).ready(function(){
-				$("#cbx_estado").change(function () {
-
-					$('#cbx_localidad').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
-					
-					$("#cbx_estado option:selected").each(function () {
-						id_estado = $(this).val();
-						$.post("VALIDAR_ESTADOS/getMunicipio.php", { id_estado: id_estado }, function(data){
-							$("#cbx_municipio").html(data);
-						});            
-					});
-				})
-			});
-			
-			$(document).ready(function(){
-				$("#cbx_municipio").change(function () {
-					$("#cbx_municipio option:selected").each(function () {
-						id_municipio = $(this).val();
-						$.post("VALIDAR_ESTADOS/getLocalidad.php", { id_municipio: id_municipio }, function(data){
-							$("#cbx_localidad").html(data);
-						});            
-					});
-				})
-			});
-		</script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <?php
@@ -65,7 +31,7 @@ if ($operator == '+') {
 ?>
 
 <body>
-  <form class="FormularioRegistrarse" action="INSERTAR_DATOS_USUARIO/DatosSingUp.php" method="POST">
+  <form class="FormularioRegistrarse" action="INSERTAR_DATOS_USUARIO/ingresar_datos_personales.php" method="POST">
     <fieldset>
       <legend>Registrarse</legend>
       <div class="form-group">
@@ -102,30 +68,6 @@ if ($operator == '+') {
       </div>
 
       <div class="form-group">
-        <label class="form-label mt-4">ESTADO</label>
-        <select name="cbx_estado" id="cbx_estado" class="form-control">
-          <option value="0">Seleccionar Estado</option>
-
-          <?php while ($row = $resultado->fetch_assoc()) { ?>
-            <option value="<?php echo $row['id_estado']; ?>"><?php echo $row['estado']; ?></option>
-          <?php } ?>
-
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label mt-4">MUNICIPIO</label>
-        <select name="cbx_municipio" id="cbx_municipio" class="form-control">          
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label mt-4">LOCALIDAD</label>
-        <select name="cbx_localidad" id="cbx_localidad" class="form-control">          
-        </select>
-      </div>
-
-      <div class="form-group">
         <label class="form-label mt-4">Email</label>
         <input type="email" class="form-control" id="Email" placeholder="Ingrese un Correo Electronico" name="correo" required>
       </div>
@@ -134,8 +76,6 @@ if ($operator == '+') {
         <label class="form-label mt-4">Password</label>
         <input type="password" class="form-control" id="pass" placeholder="Ingrese una contraseña" name="contrasena" required>
       </div>
-
-
 
       <div class="form-group">
         <label class="form-label mt-4"">Resuelva la operacion para validar el captacha</label>
@@ -146,9 +86,19 @@ if ($operator == '+') {
       <div class="text-center mt-5">
         <input type="submit" value="Registrarse" class="btn btn-lg btn-outline-danger btn-block">
       </div>
-
+      
     </fieldset>
   </form>
+
+  <script>
+        // mostrar la notificación después de enviar el formulario
+        <?php if ($_GET['enviado'] == 'false') { ?>
+            swal("Captcha Incorrecto", "¡El captcha es incorrecto!", "error");
+        <?php } 
+        if ($_GET['enviado'] == 'true') { ?>
+            swal("Correo Duplicado", "¡El correo electronico ya existe!", "error");
+        <?php } ?>
+    </script>
 
 </body>
 

@@ -11,7 +11,7 @@ if (isset($_POST['boton'])) {
             $tipo_archivo = $_FILES['imagen']['type'];
             $tamano_archivo = $_FILES['imagen']['size'];
             $ruta_temporal = $_FILES['imagen']['tmp_name'];
-          
+
             // Mueve el archivo a una carpeta en tu servidor
             $carpeta_destino = '../uploads/';
             $ruta_destino = $carpeta_destino . $nombre_archivo;
@@ -19,14 +19,13 @@ if (isset($_POST['boton'])) {
 
             $sql = "UPDATE usuario U
             INNER JOIN cuenta c on U.ID_usuario = c.ID_usuario
-            SET Foto = '".$nombre_archivo."'
-            WHERE c.correo = '". $_SESSION['correo']."'";
+            SET Foto = '" . $nombre_archivo . "'
+            WHERE c.correo = '" . $_SESSION['correo'] . "'";
 
             sqlConn($conn, $sql);
-          } else {
+        } else {
             echo "Error al subir el archivo.";
-          }
-
+        }
     } elseif ($_POST['boton'] == 2) {
 
         $nombre = $_POST['nombre'];
@@ -85,10 +84,10 @@ if (isset($_POST['boton'])) {
             // iniciar sesión del usuario aqui
 
             $sql = "UPDATE cuenta c
-                    set contrasena = md5('".$contrasenaNueva."')
+                    set contrasena = md5('" . $contrasenaNueva . "')
                     WHERE correo = '" . $_SESSION['correo'] . "';";
 
-                    sqlConn($conn, $sql);
+            sqlConn($conn, $sql);
 
             header('Location: ../EditarDatos.php?enviado=true');
             exit;
@@ -96,7 +95,7 @@ if (isset($_POST['boton'])) {
             header('Location: ../EditarDatos.php?enviado=false');
             exit;
         }
-    } elseif ($_POST['boton'] == 5) { 
+    } elseif ($_POST['boton'] == 5) {
 
         $institucion = $_POST['institucion'];
         $fecha_ingreso = $_POST['fecha_ingreso_institucion'];
@@ -106,16 +105,15 @@ if (isset($_POST['boton'])) {
         $sql = "UPDATE nivel_estudios ne
         INNER JOIN usuario u on ne.ID_usuario = u.ID_usuario
         INNER JOIN cuenta c on u.ID_usuario = c.ID_usuario
-        SET ne.institucion = '".$institucion."',
-            ne.fecha_ingreso = '".$fecha_ingreso."',
-            ne.fecha_egreso = '".$fecha_egreso."',
-            ne.descripcion = '".$descripcion."'
+        SET ne.institucion = '" . $institucion . "',
+            ne.fecha_ingreso = '" . $fecha_ingreso . "',
+            ne.fecha_egreso = '" . $fecha_egreso . "',
+            ne.descripcion = '" . $descripcion . "'
         WHERE c.correo = '" . $_SESSION['correo'] . "'";
 
 
         sqlConn($conn, $sql);
-
-    } elseif ($_POST['boton'] == 6) { 
+    } elseif ($_POST['boton'] == 6) {
 
         $ID_Experiencia = $_POST['ID_Experiencia'];
         $nombreExp = $_POST['nombreExp'];
@@ -126,14 +124,21 @@ if (isset($_POST['boton'])) {
         $sql = "UPDATE experiencia_laboral el
         INNER JOIN usuario u on el.ID_usuario = u.ID_usuario
         INNER JOIN cuenta c on u.ID_usuario = c.ID_usuario
-        SET el.Nombre_experiencia = '".$nombreExp."',
-            el.Fecha_egreso = '".$fecha_ingreso_Exp."',
-            el.Fecha_ingreso = '".$fecha_egreso_Exp."',
-            el.Descripcion = '".$descripcionExp."'
-        WHERE el.ID_experiencia = " . $ID_Experiencia. ";";
+        SET el.Nombre_experiencia = '" . $nombreExp . "',
+            el.Fecha_egreso = '" . $fecha_ingreso_Exp . "',
+            el.Fecha_ingreso = '" . $fecha_egreso_Exp . "',
+            el.Descripcion = '" . $descripcionExp . "'
+        WHERE el.ID_experiencia = " . $ID_Experiencia . ";";
 
         sqlConn($conn, $sql);
+    } elseif ($_POST['boton'] == 7) {
 
+
+        $ID_Experiencia = $_POST['ID_Experiencia'];
+
+        $sql = "DELETE FROM experiencia_laboral  WHERE ID_experiencia =  $ID_Experiencia ;";
+
+        sqlConn($conn, $sql);
     }
 } else {
     header("Location: ../index.php");
@@ -147,9 +152,10 @@ function sqlConn($conn, $sql)
 
     if (!$result) {
         die("Error en la consulta: " . mysqli_error($conn));
+    } else {
+        header('Location: ../EditarDatos.php?enviado=true');
+        exit;
     }
-    mysqli_close($conn);
 
-    header('Location: ../EditarDatos.php?enviado=true');
-    exit;
+    mysqli_close($conn);
 }

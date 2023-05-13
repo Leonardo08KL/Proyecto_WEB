@@ -47,9 +47,11 @@ if (isset($_COOKIE["sessionID"])) {
                 </li>
             </ul>
             <form class="d-flex">
+            
 
             <?php if($user === 1): ?>
-                <a class="btn btn-outline-light me-3" href="Mensajes.php">
+
+                <a class="btn btn-outline-light me-3" href="./Mensaje.php">
                     MENSAJES
                 </a>
 
@@ -59,7 +61,11 @@ if (isset($_COOKIE["sessionID"])) {
                     NUEVA OFERATA
                 </a>
 
-                <a class="btn btn-outline-light" href="perfil.php">
+                <a class="btn btn-outline-light me-3" href="Ofertas.php?datos=Ofertas">
+                    OFERTAS
+                </a>
+
+                <a class="btn btn-outline-light" href="perfil.php?Perfil=activa">
                     PERFIL
                 </a>
 

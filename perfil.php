@@ -128,7 +128,15 @@
         </div>
 
         <div class="card-footer text-center">
-            <a href="EditarDatos.php" class="btn btn-primary">EDITAR DATOS</a>
+
+
+            <?php if (isset($_GET['Perfil'])) { ?>
+                <?php if ($_GET['Perfil'] == 'activa') { ?>
+                    <a href="EditarDatos.php" class="btn btn-primary">EDITAR DATOS</a>
+                <?php } ?>
+            <?php } else { ?>
+
+            <?php } ?>
         </div>
     </div>
 
