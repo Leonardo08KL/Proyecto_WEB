@@ -1,12 +1,13 @@
 <?php
 
-$email = $_SESSION['correo'];
 require('CONEXION/conexion.php');
 
 $Nombre_oferta = '';
 
 
 if ($_GET['datos'] == 'Ofertas') {
+    
+$email = $_SESSION['correo'];
 
     $sql = "SELECT ap.ID_oferta, ap.Nombre_oferta, u.Nombre, cc.Nombre_categoria, cc.descripcion
     FROM actividad_profesional ap
@@ -47,7 +48,7 @@ if ($_GET['datos'] == 'Ofertas') {
         INNER JOIN localidad l on d.ID_localidad = l.ID_localidad
         INNER JOIN municipio m on l.ID_municipio = m.ID_municipio
         INNER JOIN estado e on m.ID_estado = e.ID_estado
-    WHERE c.correo = '".$email."' and ap.ID_oferta = ".$_GET['ID'].";";
+    WHERE ap.ID_oferta = ".$_GET['ID'].";";
 
     $result = mysqli_query($conn, $sql);
 

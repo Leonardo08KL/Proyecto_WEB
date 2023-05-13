@@ -20,7 +20,7 @@
 
     <?php
 
-    require('CONSULTAR_DATOS_PERFIL/datos_oferta.php');
+    require('CONSULTAR_DATOS_PERFIL/datos_ofertas.php');
     ?>
 
 
