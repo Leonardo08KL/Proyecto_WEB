@@ -21,7 +21,7 @@
 
     <?php
 
-    if(!(session_status() === PHP_SESSION_NONE)) $email = $_SESSION['correo']; 
+    
         
         require('CONSULTAR_DATOS_PERFIL/datos_index.php');
     
