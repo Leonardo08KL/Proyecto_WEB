@@ -59,20 +59,12 @@
                     <?php if ($_GET['tu'] == "externo") { ?>
                         <div class="card text-center mt-5">
                             <div class="card-body">
-                                <a href="./perfil.php?ID=<?php echo $_GET['ID'] ?>" class="btn btn-primary">Ver Perfil</a>
+                                <a href="./perfil.php?ID=<?php $IDUser = $_GET['ID']; echo $_GET['ID']; ?>" class="btn btn-primary">Ver Perfil</a>
                             </div>
                         </div>
 
                         <div class="card text-center mt-5">
                             <div class="card-body">
-
-                            <?php if (session_status() == PHP_SESSION_NONE) { ?>
-                                <a href="./SingUp.php" class="btn btn-primary">Mandar Mensaje</a>
-                            <?php } else { ?>
-                                <a href="./Mensaje_para_contratar.php" class="btn btn-primary">Mandar Mensaje</a>
-
-
-                            <?php } ?>
                             </div>
                         </div>
 
@@ -127,6 +119,34 @@
         <?php } ?>
 
 
+    </div>
+
+    <div class="container mt-5 mb-5 card">
+        <div class="main-body mt-5  text-center fs-2">
+
+            <?php if (session_status() == PHP_SESSION_NONE) {
+                $Session = "./SingUp.php";
+            } else {
+                $Session = "INSERTAR_DATOS_USUARIO/insertar_datos_mensaje.php?ID=".$_GET['ID'];
+            } ?>
+
+
+            <form action="<?php echo $Session; ?>" method="POST">
+                <h3 style="text-align: center;">Contact Us</h3>
+
+                <div class="form-group">
+                    <div class="input-group">
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <textarea class="form-control" id="message" name="message" rows="5" placeholder="Enter message" required></textarea>
+                </div>
+                <input type="submit" value="Enviar Mensaje" class="btn btn-primary  mb-5 mt-5">
+            </form>
+
+        </div>
     </div>
 
     <script>

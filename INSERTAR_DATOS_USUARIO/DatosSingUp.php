@@ -68,13 +68,11 @@ if(empty($captcha)){
     }
     
 } else{
-
     header("Location: ../SingUp.php?enviado=true");
     exit;
     
 }
 
-session_destroy();
 
 ?>
 

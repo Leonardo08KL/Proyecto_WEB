@@ -1,7 +1,8 @@
 <?php
 
 
-if (!(session_status() === PHP_SESSION_NONE)) {
+if (isset($_GET['ID'])) {
+
     $email = $_SESSION['correo'];
 
     $connectionDB = new ConnectionDB();
@@ -33,6 +34,8 @@ if (!(session_status() === PHP_SESSION_NONE)) {
 
 class ConnectionDB
 {
+
+
     public function consulta($sql)
     {
         $sql = "SELECT ap.ID_oferta, ap.Nombre_oferta, ap.Descripcion, ap.Rango_maximo, ap.Rango_minimo,
@@ -60,7 +63,6 @@ class ConnectionDB
         if (!$result) {
             die("Error en la consulta: " . mysqli_error($conn));
         }
-
         return $result;
     }
 }

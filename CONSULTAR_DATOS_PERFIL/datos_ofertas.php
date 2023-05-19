@@ -7,7 +7,7 @@ $Nombre_oferta = '';
 
 if ($_GET['datos'] == 'Ofertas') {
     
-$email = $_SESSION['correo'];
+    $email = $_SESSION['correo'];
 
     $sql = "SELECT ap.ID_oferta, ap.Nombre_oferta, u.Nombre, cc.Nombre_categoria, cc.descripcion
     FROM actividad_profesional ap
@@ -38,7 +38,7 @@ $email = $_SESSION['correo'];
 
     $sql = "SELECT ap.Nombre_oferta, ap.Descripcion, ap.Rango_maximo, ap.Rango_minimo, ap.Telefono_contacto,
     cc.Nombre_categoria,cc.descripcion,
-    concat(u.Nombre,' ', u.A_paterno,' ',u.A_materno, Foto) as Nombre,
+    u.ID_usuario ,concat(u.Nombre,' ', u.A_paterno,' ',u.A_materno, Foto) as Nombre,
     d.Direccion, l.localidad, m.municipio, e.estado
     FROM actividad_profesional ap
         INNER JOIN catalogo_categoria cc on ap.ID_categoria = cc.ID_categoria
@@ -65,6 +65,7 @@ $email = $_SESSION['correo'];
         $Telefono_contacto = $row['Telefono_contacto'];
         $Nombre_categoria = $row['Nombre_categoria'];
         $descripcionCatOferta = $row['descripcion'];
+        $ID_usuario = $row['ID_usuario'];
         $Nombre = $row['Nombre'];
         $Direccion = $row['Direccion'];
         $localidad = $row['localidad'];

@@ -51,7 +51,7 @@ if (isset($_COOKIE["sessionID"])) {
 
             <?php if($user === 1): ?>
 
-                <a class="btn btn-outline-light me-3" href="./Mensaje.php">
+                <a class="btn btn-outline-light me-3" href="./Mensajes.php">
                     MENSAJES
                 </a>
 
