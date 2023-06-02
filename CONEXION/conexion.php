@@ -1,7 +1,7 @@
 <?php
 //servidor, usuario de base de datos, contraseña del usuario, nombre de base de datos
 
-$localhost = 'localhost';
+$localhost = '127.0.0.1:3308';
 $username = 'root';
 $password = '';
 $dbname = 'proyectoweb';

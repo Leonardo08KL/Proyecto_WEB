@@ -25,6 +25,8 @@ if (!(session_status() === PHP_SESSION_NONE)) {
     $sqlConsulta = $sqlConsulta.";";
 
     $result = $connectionDB->conexion($sqlConsulta);
+
+    
 }
 
 ?>

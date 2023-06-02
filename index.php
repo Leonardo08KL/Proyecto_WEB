@@ -7,9 +7,10 @@
     <title>Proyecto WEB</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='./styles/indexStyle.css'>
+
     <script language="javascript" src="js/jquery-3.1.1.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
     <script src='main.js'></script>
 </head>
 
@@ -18,30 +19,19 @@
     <?php
     include "menu.php";
     ?>
-
     <?php
-
-    
-        
-        require('CONSULTAR_DATOS_PERFIL/datos_index.php');
-    
-
+    require('CONSULTAR_DATOS_PERFIL/datos_index.php');
     ?>
-
-
-    <header class="bg-dark py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
+<header class="bg-dark py-5">
+    <div class="container-fluid px-4 px-lg-5 my-5 MainPhoto">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-8 text-center hero-text">
                 <h1 class="display-4 fw-bolder">Encuentra y solicita un trabajo ideal</h1>
-                <p class="lead fw-normal text-white-50 mb-0">¡Atr&eacute;vete a dar el primer paso hacia tu futuro laboral! Est&aacute;s a solo un paso de lograr el trabajo de tus sueños y nosotros estamos aqu&iacute; para ayudarte a conseguirlo.</p>
+                <p class="lead fw-normal mb-0">¡Atrévete a dar el primer paso hacia tu futuro laboral! Estás a solo un paso de lograr el trabajo de tus sueños y nosotros estamos aquí para ayudarte a conseguirlo.</p>
             </div>
         </div>
-    </header>
-
-    <!--Aver Si Se Modifico-->
-
-
-
+    </div>
+</header>
 
     <?php while ($row = mysqli_fetch_assoc($result)) : ?>
 
@@ -63,7 +53,7 @@
 
     <footer class="py-5 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p>
+            <p class="m-0 text-center text-white">PROYECTO PROGRAMACI&Oacute;N WEB</p>
         </div>
     </footer>
 
